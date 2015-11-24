@@ -1,3 +1,5 @@
 PKG_NAME := shared-mime-info
-URL :=http://people.freedesktop.org/~hadess/shared-mime-info-1.3.tar.xz
+URL := http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz
+ARCHIVES :=
+
 include ../common/Makefile.common

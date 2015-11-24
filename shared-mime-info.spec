@@ -4,7 +4,7 @@
 #
 Name     : shared-mime-info
 Version  : 1.5
-Release  : 1
+Release  : 2
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz
 Summary  : Freedesktop common MIME database
@@ -81,7 +81,7 @@ make V=1
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make VERBOSE=1 V=1 check
 
 %install
 rm -rf %{buildroot}

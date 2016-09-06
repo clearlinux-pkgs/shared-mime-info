@@ -1,4 +1,959 @@
-commit f4e094740c36c629b5284ac270a0b08d8c75cb85 (HEAD -> master)
+commit 6a03dab04007c907485201e6aab58b89863ce1f2 (HEAD -> master)
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Sep 5 16:44:17 2016 +0200
+
+    1.7
+
+ NEWS         | 33 +++++++++++++++++++++++++++++++++
+ configure.ac |  2 +-
+ 2 files changed, 34 insertions(+), 1 deletion(-)
+
+commit 512d457807333b33e443c76ab66a508d2c3b5f20 (origin/master, origin/HEAD)
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Wed Aug 3 22:24:40 2016 +0200
+
+    Add application/x-sega-pico-rom
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97200
+
+ freedesktop.org.xml.in |   9 +++++++++
+ tests/list             |   1 +
+ tests/pico-rom.bin     | Bin 0 -> 1024 bytes
+ 3 files changed, 10 insertions(+)
+
+commit bd2a8c0f9a85014dda6486ab54bf84ed21657a2d
+Author: Stefan Pöschel <github@basicmaster.de>
+Date:   Tue Aug 2 20:30:23 2016 +0200
+
+    Fix MPEG-2 TS magic
+    
+    The MPEG-2 TS magic made assumptions which do not hold for the first
+    packet of every MPEG-2 TS, e.g. that the Continuity Counter is 0 or
+    the Payload Unit Start Indicator is set.
+    
+    This alternative approach exploits the fixed packet size of 188 bytes
+    (192 bytes with BDAV MPEG-2 TS) and checks the first five packets for
+    the Sync Byte 0x47.
+    The used offsets partly seem to be a bit high in contrast to other
+    formats, but MPEG-2 TS files are usually much bigger than that.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=51118
+
+ freedesktop.org.xml.in | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+commit 82caef0b2b583b1c782cd03866be5947961402c0
+Author: Stefan Pöschel <github@basicmaster.de>
+Date:   Tue Aug 2 20:52:40 2016 +0200
+
+    Add another MPEG-2 TS test
+    
+    Add test case with a new file that will fail.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=51118
+
+ tests/list    |   2 ++
+ tests/test.ts | Bin 0 -> 37600 bytes
+ 2 files changed, 2 insertions(+)
+
+commit 14b348fea44376a765171a422bdb05ea6b8f5616
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Sun Aug 30 00:52:09 2015 +0200
+
+    Add application/x-gamegear-rom
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=91813
+
+ freedesktop.org.xml.in  |  13 +++++++++++++
+ tests/game-gear-test.gg | Bin 0 -> 1024 bytes
+ tests/list              |   2 ++
+ 3 files changed, 15 insertions(+)
+
+commit e782480a3b193700d02696ff011ec5e1a8554cb7
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Sun Aug 30 00:51:33 2015 +0200
+
+    Add application/x-sg1000-rom
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=91813
+
+ freedesktop.org.xml.in |   5 +++++
+ tests/list             |   2 ++
+ tests/sg1000-test.sg   | Bin 0 -> 1024 bytes
+ 3 files changed, 7 insertions(+)
+
+commit 97f2cde8d373f21e91549c7311425f75071cf4a8
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Sat Aug 29 19:21:12 2015 +0200
+
+    Make application/x-sms-rom rules more precise
+    
+    Check a byte to know if it actually is a Master System ROM.
+    
+    Also remove the *.sg and *.gg glob patterns which are for the
+    application/x-sg1000-rom and application/x-gamegear-rom types which will
+    be added in next commits.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=91813
+
+ freedesktop.org.xml.in |   9 ++++++---
+ tests/list             |   2 ++
+ tests/sms-test.sms     | Bin 0 -> 1024 bytes
+ 3 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 562a9dc3f68cb6ca3dfea22378ebb3ba372a7045
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Aug 2 15:37:46 2016 +0200
+
+    build: Make check-translations easier to use
+    
+    It will only exit once it's printed all the missing languages in
+    po/LINGUAS now, rather than stopping after the first one.
+
+ Makefile.am | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit 8156d72ac9cf2a18e09bc7a86d2975454d46c8c0
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Aug 2 15:36:07 2016 +0200
+
+    Update translations from Transifex
+
+ po/ar.po          |  918 ++++++++++++++++++-----------------
+ po/as.po          |  918 ++++++++++++++++++-----------------
+ po/az.po          |  918 ++++++++++++++++++-----------------
+ po/bg.po          |  918 ++++++++++++++++++-----------------
+ po/bn_IN.po       |  918 ++++++++++++++++++-----------------
+ po/ca.po          |  930 ++++++++++++++++++------------------
+ po/ca@valencia.po |  918 ++++++++++++++++++-----------------
+ po/cs.po          |  920 +++++++++++++++++------------------
+ po/cy.po          |  918 ++++++++++++++++++-----------------
+ po/da.po          |  920 +++++++++++++++++------------------
+ po/de.po          |  922 +++++++++++++++++------------------
+ po/el.po          |  920 +++++++++++++++++------------------
+ po/en_GB.po       |  920 +++++++++++++++++------------------
+ po/eo.po          |  918 ++++++++++++++++++-----------------
+ po/es.po          |  937 ++++++++++++++++++------------------
+ po/et.po          |  918 ++++++++++++++++++-----------------
+ po/eu.po          |  960 +++++++++++++++++++------------------
+ po/fa.po          |  918 ++++++++++++++++++-----------------
+ po/fi.po          |  944 ++++++++++++++++++------------------
+ po/fo.po          |  918 ++++++++++++++++++-----------------
+ po/fr.po          |  918 ++++++++++++++++++-----------------
+ po/ga.po          |  918 ++++++++++++++++++-----------------
+ po/gl.po          |  918 ++++++++++++++++++-----------------
+ po/gu.po          |  918 ++++++++++++++++++-----------------
+ po/he.po          |  918 ++++++++++++++++++-----------------
+ po/hi.po          |  918 ++++++++++++++++++-----------------
+ po/hr.po          | 1381 +++++++++++++++++++++++++++--------------------------
+ po/hu.po          |  921 +++++++++++++++++------------------
+ po/ia.po          |  920 +++++++++++++++++------------------
+ po/id.po          |  976 ++++++++++++++++++-------------------
+ po/it.po          |  918 ++++++++++++++++++-----------------
+ po/ja.po          |  918 ++++++++++++++++++-----------------
+ po/ka.po          |  918 ++++++++++++++++++-----------------
+ po/kk.po          |  920 +++++++++++++++++------------------
+ po/kn.po          |  918 ++++++++++++++++++-----------------
+ po/ko.po          |  920 +++++++++++++++++------------------
+ po/lt.po          |  918 ++++++++++++++++++-----------------
+ po/lv.po          |  918 ++++++++++++++++++-----------------
+ po/ml.po          |  918 ++++++++++++++++++-----------------
+ po/mr.po          |  918 ++++++++++++++++++-----------------
+ po/ms.po          |  918 ++++++++++++++++++-----------------
+ po/nb.po          |  918 ++++++++++++++++++-----------------
+ po/nl.po          |  918 ++++++++++++++++++-----------------
+ po/nn.po          |  918 ++++++++++++++++++-----------------
+ po/oc.po          |  930 ++++++++++++++++++------------------
+ po/or.po          |  918 ++++++++++++++++++-----------------
+ po/pa.po          |  918 ++++++++++++++++++-----------------
+ po/pl.po          |  920 +++++++++++++++++------------------
+ po/pt.po          |  920 +++++++++++++++++------------------
+ po/pt_BR.po       |  920 +++++++++++++++++------------------
+ po/ro.po          |  918 ++++++++++++++++++-----------------
+ po/ru.po          |  926 +++++++++++++++++------------------
+ po/ru_RU.po       |  920 +++++++++++++++++------------------
+ po/sk.po          |  922 +++++++++++++++++------------------
+ po/sl.po          |  918 ++++++++++++++++++-----------------
+ po/sq.po          |  918 ++++++++++++++++++-----------------
+ po/sr.po          |  974 ++++++++++++++++++-------------------
+ po/sr@latin.po    |  918 ++++++++++++++++++-----------------
+ po/sv.po          |  921 +++++++++++++++++------------------
+ po/ta.po          |  918 ++++++++++++++++++-----------------
+ po/te.po          |  918 ++++++++++++++++++-----------------
+ po/th.po          |  918 ++++++++++++++++++-----------------
+ po/tr.po          |  970 +++++++++++++++++++------------------
+ po/uk.po          |  920 +++++++++++++++++------------------
+ po/vi.po          |  918 ++++++++++++++++++-----------------
+ po/wa.po          |  918 ++++++++++++++++++-----------------
+ po/zh_CN.po       |  925 +++++++++++++++++------------------
+ po/zh_HK.po       |  918 ++++++++++++++++++-----------------
+ po/zh_TW.po       |  920 +++++++++++++++++------------------
+ 69 files changed, 32623 insertions(+), 31514 deletions(-)
+
+commit ca90e3454914d6fad5cc6603a2cfcf8e0a62d1b3
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Sun Jul 31 16:28:15 2016 +0200
+
+    Add a Genesis 32X MIME type
+    
+    Allow to disambiguate Genesis 32X ROMs from Genesis ones.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97155
+
+ freedesktop.org.xml.in   |  12 +++++++++++-
+ tests/32x-rom.32x        | Bin 0 -> 1024 bytes
+ tests/list               |   2 ++
+ tests/mega-drive-rom.gen | Bin 0 -> 1024 bytes
+ 4 files changed, 13 insertions(+), 1 deletion(-)
+
+commit 42860bc21fb6f694184f496259ca52c019b5b36a
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Aug 2 15:27:57 2016 +0200
+
+    Revert "mimetypes added: pot,xlt; testfiles: xls,xlt,ppt,pot; alias for dot added; magic numbe for xls removed for invalidity"
+    
+    This reverts commit e9b7d1202a13733b3dfb94ed234939d42f1ed465.
+
+ freedesktop.org.xml.in |  23 +++++------------------
+ tests/list             |   4 ----
+ tests/sample.pot       | Bin 164352 -> 0 bytes
+ tests/sample.ppt       | Bin 127488 -> 0 bytes
+ tests/sample.xls       | Bin 5632 -> 0 bytes
+ tests/sample.xlt       | Bin 5632 -> 0 bytes
+ 6 files changed, 5 insertions(+), 22 deletions(-)
+
+commit eeb5c33016a04f8e3981339f3e17c2022f6d84a0
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Mon Aug 1 09:59:42 2016 +0200
+
+    Add a Game Boy Color MIME type
+    
+    Allow to disambiguate Game Boy Color ROMs from Game Boy ones.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97161
+
+ freedesktop.org.xml.in | 15 +++++++++++++--
+ tests/list             |  2 +-
+ 2 files changed, 14 insertions(+), 3 deletions(-)
+
+commit e9b7d1202a13733b3dfb94ed234939d42f1ed465
+Author: Yan Pashkovsky <yanpaso@gmail.com>
+Date:   Mon Oct 5 18:58:41 2015 +0300
+
+    mimetypes added: pot,xlt; testfiles: xls,xlt,ppt,pot; alias for dot added; magic numbe for xls removed for invalidity
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=92180
+
+ freedesktop.org.xml.in |  23 ++++++++++++++++++-----
+ tests/list             |   4 ++++
+ tests/sample.pot       | Bin 0 -> 164352 bytes
+ tests/sample.ppt       | Bin 0 -> 127488 bytes
+ tests/sample.xls       | Bin 0 -> 5632 bytes
+ tests/sample.xlt       | Bin 0 -> 5632 bytes
+ 6 files changed, 22 insertions(+), 5 deletions(-)
+
+commit 2deea044fa87ea2f2b824c86b05afb2b8dca7fbc
+Author: Alistair Thomas <astavale@yahoo.co.uk>
+Date:   Tue May 17 14:46:00 2016 +0100
+
+    Add Gherkin feature specifications mime-type
+    
+    Add mime-type text/x-gherkin for feature specifications
+    in the Gherkin format.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95455
+
+ freedesktop.org.xml.in | 5 +++++
+ tests/list             | 2 ++
+ tests/test.feature     | 4 ++++
+ 3 files changed, 11 insertions(+)
+
+commit 238d9a49ae2683a41cbd45b702fd590270dc9f9a
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Fri Jul 29 23:11:21 2016 +0300
+
+    application/vnd.framemaker: Use IANA registered type, add *.fm
+    
+    http://www.iana.org/assignments/media-types/application/vnd.framemaker
+
+ freedesktop.org.xml.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit e3649d678b252c6ed77739898a40d243b5373437
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Fri Jul 29 22:02:49 2016 +0300
+
+    Add application/x-bsdiff
+    
+    http://www.daemonology.net/papers/bsdiff.pdf
+    http://openpreservation.org/system/files/bsdiff-4.0-documentation-colin-percival-bsd-licensed.pdf
+
+ freedesktop.org.xml.in |   8 ++++++++
+ tests/list             |   2 ++
+ tests/test.bsdiff      | Bin 0 -> 131 bytes
+ 3 files changed, 10 insertions(+)
+
+commit dc9377eb3f42b103a3eade3c1b52dcf1ca466cfd
+Author: Adrien Plazas <kekun.plazas@laposte.net>
+Date:   Thu Jul 28 14:01:45 2016 +0200
+
+    Add a Sega CD/Mega-CD MIME type
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97107
+
+ freedesktop.org.xml.in |  17 +++++++++++++++++
+ tests/list             |   2 ++
+ tests/sega-cd-test.iso | Bin 0 -> 1024 bytes
+ 3 files changed, 19 insertions(+)
+
+commit 2002c05bb1e85e6e3f0be1427d727e896ebbaf10
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Mon Jul 18 23:47:09 2016 +0300
+
+    application/vnd.rar: Use official IANA registered type
+    
+    http://www.iana.org/assignments/media-types/application/vnd.rar
+
+ freedesktop.org.xml.in | 5 +++--
+ tests/list             | 2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+commit ecb58670065c9a1cb8a7605703884450f4b5ee18
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Wed Jul 13 22:27:13 2016 +0300
+
+    tests/list: Spelling fix
+
+ tests/list | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 17ab559e9d986242ce0582e6604f79a514144895
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Wed Jul 13 22:25:00 2016 +0300
+
+    application/vnd.comicbook+zip: Use official IANA registered type
+    
+    http://www.iana.org/assignments/media-types/application/vnd.comicbook+zip
+
+ freedesktop.org.xml.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit add75df876f37a68856fbd57992dcb45294521ec
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Wed Jul 13 22:23:47 2016 +0300
+
+    application/geo+json: Use new IANA registered type
+    
+    http://www.iana.org/assignments/media-types/application/geo+json
+
+ freedesktop.org.xml.in | 3 ++-
+ tests/list             | 4 ++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+commit c3430af40685cbdf840a303c42f55ac9a0bf16eb
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sat Jul 2 10:16:11 2016 +0300
+
+    application/vnd.chess-pgn: Add acronym
+
+ freedesktop.org.xml.in | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit e2b3868c5eca7dc2308d44fcc7e5a9bb4fea3151
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sat Jul 2 09:01:49 2016 +0300
+
+    application/vnd.chess-pgn: Use official IANA registered type, add test
+    
+    http://www.iana.org/assignments/media-types/application/vnd.chess-pgn
+
+ freedesktop.org.xml.in |  3 ++-
+ tests/list             |  2 ++
+ tests/test.pgn         | 16 ++++++++++++++++
+ 3 files changed, 20 insertions(+), 1 deletion(-)
+
+commit 01fa61fc002afdcf43f61e7df2d6cc6f6968d8d2
+Author: Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+Date:   Sun Jun 26 20:23:09 2016 +0200
+
+    Add mimetype for AppImage
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=96685
+
+ freedesktop.org.xml.in               |  17 +++++++++++++++++
+ tests/Leafpad-0.8.17-x86_64.AppImage | Bin 0 -> 200 bytes
+ tests/list                           |   2 ++
+ 3 files changed, 19 insertions(+)
+
+commit 19d6683981803aeb773daeea0fbf507872877fe4
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Jun 24 13:13:15 2016 +0200
+
+    Fix misdetection of zip files as their content
+    
+    Bump application/zip priority so that if the file is a PDF inside a zip
+    file, we don't have a toss up between those 2 to know which mime-type it
+    actually is.
+    Prefer the application/zip rather than whatever is inside.
+    
+    But that means that all the priorities for the application/zip sub-types
+    magic need to be bumped to be higher than application/zip, so they are
+    detected as that type rather than zip.
+    
+    In short: application/zip magic priority raised to 60
+    application/zip sub-types magic priorities raised to 70
+    
+    This is similar to the fix in 10fc17e
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=96660
+
+ freedesktop.org.xml.in | 62 +++++++++++++++++++++++++-------------------------
+ 1 file changed, 31 insertions(+), 31 deletions(-)
+
+commit b453fc2c203b82b200a086dde1090b7d5b9e028d
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Jun 24 13:12:41 2016 +0200
+
+    Add missing subclass statement for OpenRaster files
+    
+    They're zip files, so mark them as such.
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 66d30952d1f768d132375274865f7cc3aa548b01
+Author: Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+Date:   Mon Jun 13 17:16:44 2016 +0200
+
+    Add mimetype for tar.lz4 archives
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=96509
+
+ freedesktop.org.xml.in |   6 ++++++
+ tests/list             |   2 ++
+ tests/test.tar.lz4     | Bin 0 -> 270 bytes
+ 3 files changed, 8 insertions(+)
+
+commit cc6216c9c5b8a8ea953ffed0f5f68c995b2417b4
+Author: Andreas Stieger <astieger@suse.com>
+Date:   Thu Jun 9 18:35:20 2016 +0200
+
+    Add alias application/nappdf for application/pdf
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=96463
+    https://bugzilla.opensuse.org/show_bug.cgi?id=984021
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit daad084ceb9d96ea3003211bac288f2f98bd8781
+Author: Alexander Larsson <alexl@redhat.com>
+Date:   Wed Jun 1 12:07:12 2016 +0200
+
+    Add flatpak repo mime type
+
+ freedesktop.org.xml.in  | 9 +++++++++
+ tests/gnome.flatpakrepo | 4 ++++
+ tests/list              | 1 +
+ 3 files changed, 14 insertions(+)
+
+commit 9039aaa6cfcfd18df0dc245b3e7831379dc8a211
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 31 16:43:41 2016 +0300
+
+    application/x-mod: Lower magic priority to 40
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95397#c7
+
+ freedesktop.org.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 19d8d88272374257f5840d2ffebbb4eeaef90a50
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 31 16:40:59 2016 +0300
+
+    application/x-mod: Simplify *.669 magic matches
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95397#c8
+
+ freedesktop.org.xml.in | 36 ++++++++----------------------------
+ 1 file changed, 8 insertions(+), 28 deletions(-)
+
+commit cb42e93ff41c39a1039d3d17cc4419dbf4d175b5
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 31 16:37:46 2016 +0300
+
+    application/x-mod: Use better magic also for extended 669 tracker MOD files
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95397#c6
+
+ freedesktop.org.xml.in | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+commit 7cf3a9d4f034d1b1d4ce728cc70c33e5edc3d384
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 31 16:35:47 2016 +0300
+
+    application/x-mod: Use strings in *.669 magics
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95397#c6
+
+ freedesktop.org.xml.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0490bb5fe269282e7bcb61565d4358a644083370
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon May 30 14:27:49 2016 +0200
+
+    Better magic for 669 tracker MOD files
+    
+    Match the number of samples and patterns as per:
+    ftp://ftp.modland.com/pub/documents/format_documentation/Composer%20669,%20Unis%20669%20(.669).txt
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95397
+
+ freedesktop.org.xml.in | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+commit f6ba309e32152cc74ad54eff1afc5ece8589bb96
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 31 16:34:45 2016 +0300
+
+    .gitignore: Ignore `compile'
+
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 5892dc9b953ebaa2ab632f809f1a0ea0cff12af1
+Author: Alistair Thomas <astavale@yahoo.co.uk>
+Date:   Mon May 23 18:47:49 2016 +0100
+
+    Add mime-type for Twig templates
+    
+    Add text/x-twig for Twig templates, with tests.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95559
+
+ freedesktop.org.xml.in | 6 ++++++
+ tests/list             | 2 ++
+ tests/test.twig        | 7 +++++++
+ 3 files changed, 15 insertions(+)
+
+commit 986f4fd5c110909c2e4fad067e29f9b3d8e33e35
+Author: Alistair Thomas <astavale@yahoo.co.uk>
+Date:   Mon May 23 22:56:47 2016 +0100
+
+    Add mime-types for Sass CSS pre-processor files
+    
+    Add text/x-scss and text/x-sass mime-types, with tests.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95579
+
+ freedesktop.org.xml.in | 12 ++++++++++++
+ tests/list             |  4 ++++
+ tests/test.sass        | 16 ++++++++++++++++
+ tests/test.scss        | 12 ++++++++++++
+ 4 files changed, 44 insertions(+)
+
+commit 3d6637b5c01adb8e8efd5c22792a997d0d2fd62f
+Author: Martin Blanchard <tchaik@gmx.com>
+Date:   Mon May 30 22:52:56 2016 +0200
+
+    Add mime-type for IGES documents
+    
+    IGES document have an IANA defined MIME type, model/iges. See
+    RFC 2077 for details, MIME types and extensions. For magic strings, see
+    IGES specification, section 2.2 "ASCII File Formats". Version 5.x can
+    be found at:
+    http://www.wiz-worx.com/iges5x/version5x/version5x.pdf
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=36506
+
+ freedesktop.org.xml.in |  13 +++++
+ tests/cube.igs         | 150 +++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/list             |   1 +
+ 3 files changed, 164 insertions(+)
+
+commit 4882ca0ca00bba68d8d8ddaf43dc486634c35043
+Author: Robert Ancell <robert.ancell@canonical.com>
+Date:   Mon May 30 15:15:32 2016 +1200
+
+    Add application/vnd.snap
+    
+    http://askubuntu.com/questions/761245/what-is-the-snap-packaging-format
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=43621
+
+ freedesktop.org.xml.in    |   6 ++++++
+ tests/example_42_all.snap | Bin 0 -> 4096 bytes
+ tests/list                |   1 +
+ 3 files changed, 7 insertions(+)
+
+commit 5fe9db99c88abf2e70d412656938689937a24fe1
+Author: Martin Blanchard <tchaik@gmx.com>
+Date:   Sun May 29 19:49:34 2016 +0200
+
+    Improve VRML support (model/vrml)
+    
+    Adds a magic string for content type detection ("#VRML "). A test file is
+    also provided.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=96270
+
+ freedesktop.org.xml.in |   3 +
+ tests/cube.wrl         | 403 +++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/list             |   3 +
+ 3 files changed, 409 insertions(+)
+
+commit e96df89951378a02a1b3ccef9c587b10bc1ca912
+Author: Robert Ancell <robert.ancell@canonical.com>
+Date:   Thu May 26 15:54:10 2016 +1200
+
+    Add application/vnd.squashfs
+    
+    http://squashfs.sourceforge.net/
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=43621
+
+ freedesktop.org.xml.in |   9 +++++++++
+ tests/image.sqsh       | Bin 0 -> 16384 bytes
+ tests/list             |   1 +
+ 3 files changed, 10 insertions(+)
+
+commit da064b6e89df0fc98a9adfdb9c49c23def7972ab
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sat May 28 11:53:13 2016 +0300
+
+    Revert "Revert "Add application/raml+yaml""
+    
+    Re-add with test file included.
+    
+    This reverts commit fe27b8c8f1391fb4392b11635bfce2c241b457a7.
+
+ freedesktop.org.xml.in | 10 ++++++++++
+ tests/list             |  2 ++
+ tests/test.raml        |  9 +++++++++
+ 3 files changed, 21 insertions(+)
+
+commit 10ad0c738089a77ea4d05f449b479891d538272e
+Author: Benjamin Otte <otte@redhat.com>
+Date:   Wed Sep 30 17:33:22 2015 +0200
+
+    Fix invalid octal escape
+    
+    Test file colormapped.tga included
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=92197
+
+ freedesktop.org.xml.in |   2 +-
+ tests/colormapped.tga  | Bin 0 -> 1797 bytes
+ tests/list             |   1 +
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 9ca401f5e0c174625af90d087c9d6eab6560bc28
+Author: Friedrich W. H. Kossebau <kossebau@kde.org>
+Date:   Wed Apr 27 19:41:25 2016 +0200
+
+    Add aliases to application/gpx+xml & root-XML info
+    
+    Add GPX mimetypes as found in the wild.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=95178
+
+ freedesktop.org.xml.in |  5 +++++
+ tests/list             |  2 ++
+ tests/test10.gpx       | 19 +++++++++++++++++++
+ 3 files changed, 26 insertions(+)
+
+commit e0f51b2ccda6f403f2b3abc4045d930feda765fc
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri May 27 18:05:19 2016 +0200
+
+    Fix multi-page DjVu detection by file
+    
+    We need to have the same globs for both image/vnd.djvu+multipage and
+    image/vnd.djvu so that checking by file will force checking by magic,
+    otherwise all the multi-page files will be detected as simple
+    image/vnd.djvu.
+
+ freedesktop.org.xml.in | 2 ++
+ tests/list             | 4 ++--
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit fe27b8c8f1391fb4392b11635bfce2c241b457a7
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri May 27 13:18:55 2016 +0200
+
+    Revert "Add application/raml+yaml"
+    
+    The test file is missing.
+    
+    This reverts commit dd051b4dca6878f5a9a549d585d275697e364153.
+
+ freedesktop.org.xml.in | 10 ----------
+ tests/list             |  2 --
+ 2 files changed, 12 deletions(-)
+
+commit dd051b4dca6878f5a9a549d585d275697e364153
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Wed May 18 17:37:41 2016 +0300
+
+    Add application/raml+yaml
+    
+    http://www.raml.org/raml-10-spec
+
+ freedesktop.org.xml.in | 10 ++++++++++
+ tests/list             |  2 ++
+ 2 files changed, 12 insertions(+)
+
+commit 6919dc3af99d71c2823b1522f39f44b1785e3aa5
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 17 09:11:15 2016 +0300
+
+    image/emf: Use official IANA registered type
+    
+    http://www.iana.org/assignments/media-types/image/emf
+
+ freedesktop.org.xml.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit bbe5a99bff4a0ca9df6419c094ca862f991a91d5
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 17 09:10:43 2016 +0300
+
+    image/wmf: Use official IANA registered type
+    
+    http://www.iana.org/assignments/media-types/image/wmf
+
+ freedesktop.org.xml.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 581e55b23a6435d26b5c6aa3f1ae1536b83d0c59
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Tue May 17 09:10:01 2016 +0300
+
+    image/bmp: Add *.dib glob from IANA registration
+    
+    http://www.iana.org/assignments/media-types/image/bmp
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 12ba0dc694f979082855458f2b4fc340a3047e0e
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Wed May 11 13:26:34 2016 +0200
+
+    Remove *.sg from Sega Master System ROM type
+    
+    It's a ROM for the Sega SG-1000 system, which isn't compatible with
+    the Sega Master System ROMs and uses a different magic from the one we
+    disabled (the ROMs are smaller than 32k...).
+
+ freedesktop.org.xml.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 2fe5b320f38a4d3c00fa733aea745a657ecc7c6b
+Author: Alexander Larsson <alexl@redhat.com>
+Date:   Tue May 10 11:44:56 2016 +0200
+
+    Make the old xdg-app mimetype just an alias to flatpak
+
+ freedesktop.org.xml.in | 11 +++--------
+ tests/list             |  2 +-
+ 2 files changed, 4 insertions(+), 9 deletions(-)
+
+commit dfa85984529824ce83585ab469adcfc6e2f505f1
+Author: Alexander Larsson <alexl@redhat.com>
+Date:   Tue May 10 11:22:50 2016 +0200
+
+    Add flatpak mimetype and test
+
+ freedesktop.org.xml.in |   8 ++++++++
+ tests/hello.flatpak    | Bin 0 -> 18084 bytes
+ tests/list             |   1 +
+ 3 files changed, 9 insertions(+)
+
+commit 699f7c9b3ba92a1e64ce68373346ae89726ad3c5
+Author: Phil Schaf <flying-sheep@web.de>
+Date:   Sat Apr 9 15:24:09 2016 +0200
+
+    Add mimetype for Jupyter Notebook files
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=94878
+
+ freedesktop.org.xml.in     | 11 +++++++++++
+ tests/list                 |  2 ++
+ tests/test-reordered.ipynb | 34 ++++++++++++++++++++++++++++++++++
+ tests/test.ipynb           | 34 ++++++++++++++++++++++++++++++++++
+ 4 files changed, 81 insertions(+)
+
+commit e15b5a7db627e8274b22f2f8038949d32b1a097d
+Author: Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+Date:   Tue Apr 5 20:31:50 2016 +0200
+
+    Add mimetype for tar.lz archives
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=94833
+
+ freedesktop.org.xml.in |   6 ++++++
+ tests/list             |   2 ++
+ tests/test.tar.lz      | Bin 0 -> 152 bytes
+ 3 files changed, 8 insertions(+)
+
+commit a435ae1f9326cda41683925259ac60b271f12148
+Author: David Faure <faure@kde.org>
+Date:   Sun Apr 3 15:15:31 2016 +0200
+
+    Remove audio/amr alias given that there is also a audio/AMR real mimetype.
+    
+    Move encrypted aliases to the respective mimetypes, seems more correct.
+
+ freedesktop.org.xml.in | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 46d2b3a97b087a09156b27796bd05427a8624e19
+Author: David Faure <faure@kde.org>
+Date:   Sun Apr 3 15:07:30 2016 +0200
+
+    Remove audio/amr-wb as an alias for video/3gpp,
+    
+    given that we have audio/AMR-WB as a real mimetype
+    (and case doesn't matter).
+    
+    Not sure what to do about audio/amr, audio/amr-encrypted
+    and audio/amr-wb-encrypted though. Should they be aliases
+    of audio/AMR-WB instead?
+
+ freedesktop.org.xml.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit d14e59da30f6ec05279053f4989c4c8deef7b6af
+Author: David Faure <faure@kde.org>
+Date:   Sun Apr 3 15:05:08 2016 +0200
+
+    Use real mimetype names in sub-class-of rather than aliases, to save lookups
+
+ freedesktop.org.xml.in | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 40f5a1b61db8a3329c627b7b4d8c895e0cf46850
+Author: Ricard Gascons <gascons1995@gmail.com>
+Date:   Tue Mar 22 20:36:42 2016 +0100
+
+    Add MIME type for Atari 2600 ROMs
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=94663
+
+ freedesktop.org.xml.in    |   5 +++++
+ tests/atari-2600-test.A26 | Bin 0 -> 1024 bytes
+ tests/list                |   2 ++
+ 3 files changed, 7 insertions(+)
+
+commit 870ab0c3a34bb876bf1c432e8c294f7af8b7c091
+Author: Ricard Gascons <gascons1995@gmail.com>
+Date:   Wed Mar 9 20:08:00 2016 +0100
+
+    Add MIME type for Neo Geo Pocket ROMs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=94467
+
+ freedesktop.org.xml.in        |   8 ++++++++
+ tests/list                    |   2 ++
+ tests/neo-geo-pocket-test.ngp | Bin 0 -> 1024 bytes
+ 3 files changed, 10 insertions(+)
+
+commit 05c52fe7c9d2f17d0d327a47fea6e9aeec3384d5
+Author: Ricard Gascons <gascons1995@gmail.com>
+Date:   Sat Mar 19 09:23:14 2016 +0100
+
+    Add MIME type for Atari 7800 ROMs
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=94622
+
+ freedesktop.org.xml.in    |   8 ++++++++
+ tests/atari-7800-test.A78 | Bin 0 -> 1024 bytes
+ tests/list                |   2 ++
+ 3 files changed, 10 insertions(+)
+
+commit 184e47316a4c1717cfbf170b51f5f52e89ad5657
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Thu Feb 25 16:40:17 2016 +0100
+
+    Update translations from Transifex
+
+ po/LINGUAS        |    1 +
+ po/ar.po          | 1179 +++++++++++-----------
+ po/as.po          | 1187 +++++++++++-----------
+ po/az.po          | 1165 +++++++++++-----------
+ po/bg.po          | 1191 +++++++++++-----------
+ po/bn_IN.po       | 1187 +++++++++++-----------
+ po/ca.po          | 1446 ++++++++++++++-------------
+ po/ca@valencia.po | 1187 +++++++++++-----------
+ po/cs.po          | 1247 ++++++++++++-----------
+ po/cy.po          | 1165 +++++++++++-----------
+ po/da.po          | 1201 +++++++++++-----------
+ po/de.po          | 1203 +++++++++++-----------
+ po/el.po          | 1191 +++++++++++-----------
+ po/en_GB.po       | 1191 +++++++++++-----------
+ po/eo.po          | 1179 +++++++++++-----------
+ po/es.po          | 1191 +++++++++++-----------
+ po/et.po          | 1187 +++++++++++-----------
+ po/eu.po          | 1193 +++++++++++-----------
+ po/fa.po          | 1187 +++++++++++-----------
+ po/fi.po          | 1195 +++++++++++-----------
+ po/fo.po          | 1179 +++++++++++-----------
+ po/fr.po          | 1191 +++++++++++-----------
+ po/ga.po          | 1179 +++++++++++-----------
+ po/gl.po          | 1191 +++++++++++-----------
+ po/gu.po          | 1187 +++++++++++-----------
+ po/he.po          | 1191 +++++++++++-----------
+ po/hi.po          | 1187 +++++++++++-----------
+ po/hr.po          | 1189 +++++++++++-----------
+ po/hu.po          | 1193 +++++++++++-----------
+ po/ia.po          | 1201 +++++++++++-----------
+ po/id.po          | 1191 +++++++++++-----------
+ po/it.po          | 1191 +++++++++++-----------
+ po/ja.po          | 1191 +++++++++++-----------
+ po/ka.po          | 1187 +++++++++++-----------
+ po/kk.po          | 1191 +++++++++++-----------
+ po/kn.po          | 1187 +++++++++++-----------
+ po/ko.po          | 1191 +++++++++++-----------
+ po/lt.po          | 1179 +++++++++++-----------
+ po/lv.po          | 1191 +++++++++++-----------
+ po/ml.po          | 1187 +++++++++++-----------
+ po/mr.po          | 1187 +++++++++++-----------
+ po/ms.po          | 1169 +++++++++++-----------
+ po/nb.po          | 1179 +++++++++++-----------
+ po/nl.po          | 1191 +++++++++++-----------
+ po/nn.po          | 1179 +++++++++++-----------
+ po/oc.po          | 2538 +++++++++++++++++++++++-----------------------
+ po/or.po          | 1187 +++++++++++-----------
+ po/pa.po          | 1187 +++++++++++-----------
+ po/pl.po          | 1193 +++++++++++-----------
+ po/pt.po          | 2176 ++++++++++++++++++++--------------------
+ po/pt_BR.po       | 1191 +++++++++++-----------
+ po/ro.po          | 1181 +++++++++++-----------
+ po/ru.po          | 1203 +++++++++++-----------
+ po/ru_RU.po       | 2875 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/sk.po          | 1194 +++++++++++-----------
+ po/sl.po          | 1193 +++++++++++-----------
+ po/sq.po          | 1179 +++++++++++-----------
+ po/sr.po          | 1191 +++++++++++-----------
+ po/sr@latin.po    | 1187 +++++++++++-----------
+ po/sv.po          | 1201 +++++++++++-----------
+ po/ta.po          | 1187 +++++++++++-----------
+ po/te.po          | 1187 +++++++++++-----------
+ po/th.po          | 1187 +++++++++++-----------
+ po/tr.po          | 1193 +++++++++++-----------
+ po/uk.po          | 1191 +++++++++++-----------
+ po/vi.po          | 1179 +++++++++++-----------
+ po/wa.po          | 1187 +++++++++++-----------
+ po/zh_CN.po       | 1202 +++++++++++-----------
+ po/zh_HK.po       | 1187 +++++++++++-----------
+ po/zh_TW.po       | 1253 ++++++++++++-----------
+ 70 files changed, 46572 insertions(+), 39809 deletions(-)
+
+commit f4e094740c36c629b5284ac270a0b08d8c75cb85 (tag: Release-1-6)
 Author: Bastien Nocera <hadess@hadess.net>
 Date:   Tue Feb 23 15:24:01 2016 +0100
 
@@ -8,7 +963,7 @@ Date:   Tue Feb 23 15:24:01 2016 +0100
  configure.ac |  2 +-
  2 files changed, 11 insertions(+), 1 deletion(-)
 
-commit ad6c09059ee31bf1c306755c5f0156f9088f37b9 (origin/master, origin/HEAD)
+commit ad6c09059ee31bf1c306755c5f0156f9088f37b9
 Author: Bastien Nocera <hadess@hadess.net>
 Date:   Tue Feb 23 14:45:52 2016 +0100
 

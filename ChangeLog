@@ -1,4 +1,210 @@
-commit 6a03dab04007c907485201e6aab58b89863ce1f2 (HEAD -> master)
+commit 42ce8b5be943ad3bd903a590914c760e439ecf4c (HEAD -> master)
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Dec 5 18:00:52 2016 +0100
+
+    1.8
+
+ NEWS         | 8 ++++++++
+ configure.ac | 2 +-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+commit 13cd68a176e9ff70a05cfb36fca3daebdea2e311 (origin/master, origin/HEAD)
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Wed Nov 2 16:58:23 2016 +0100
+
+    Add many audio and video mime-type aliases
+    
+    As used in VLC's mime-types definitions.
+    
+    https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842805
+
+ freedesktop.org.xml.in | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 5e8b00103255d9e0b891fdd11a90532787a6beb1
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Sat Oct 29 20:16:08 2016 +0200
+
+    Add HFE disk image mime-type
+    
+    From the spec available here:
+    http://hxc2001.free.fr/floppy_drive_emulator/SDCard_HxC_Floppy_Emulator_HFE_file_format.pdf
+
+ freedesktop.org.xml.in |  10 ++++++++++
+ tests/classiq1.hfe     | Bin 0 -> 1024 bytes
+ tests/list             |   2 ++
+ 3 files changed, 12 insertions(+)
+
+commit 172e53c43b74985aa837a7609889887db66a0222
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Sat Oct 29 19:10:33 2016 +0200
+
+    Add Thomson TO-series cassettes and cartridges mime-types
+    
+    Unfortunately, no reliable magic for those.
+
+ freedesktop.org.xml.in |  10 ++++++++++
+ tests/androide.k7      | Bin 0 -> 1024 bytes
+ tests/blitz.m7         | Bin 0 -> 1024 bytes
+ tests/list             |   3 +++
+ 4 files changed, 13 insertions(+)
+
+commit 19e864e2dfcfc7b69df1d353fafadaa026c63abe
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Sat Oct 29 18:16:18 2016 +0200
+
+    Add mime-type for Thomson SAP disk images
+    
+    See http://nostalgies.thomsonistes.org/transfert.html
+    for sources.
+
+ freedesktop.org.xml.in |  10 ++++++++++
+ tests/list             |   2 ++
+ tests/ripoux.sap       | Bin 0 -> 1024 bytes
+ 3 files changed, 12 insertions(+)
+
+commit 5371e19e170fcffc2ec08ef38531c244bef1acb8
+Author: Juan Francisco Cantero Hurtado <iam@juanfra.info>
+Date:   Wed Oct 19 00:31:32 2016 +0200
+
+    Add mime-type for pdf.lz files
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=98314
+
+ freedesktop.org.xml.in |   6 ++++++
+ tests/list             |   2 ++
+ tests/test.pdf.lz      | Bin 0 -> 3571 bytes
+ 3 files changed, 8 insertions(+)
+
+commit fa36dba1ca8608aa30746e46b4a3d37b3420dfe8
+Author: Richard Hughes <richard@hughsie.com>
+Date:   Wed Sep 28 15:40:19 2016 +0100
+
+    Assign icons for various flatpak file formats
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97962
+
+ freedesktop.org.xml.in | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 0907448e99087f03018ff62b5e20d263f742ff89
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:   Mon Jul 11 16:00:27 2016 -0400
+
+    Write the correct length for literal and glob lists to the cache
+    
+    As pointed out in bugzilla, we were not counting 'duplicates'
+    properly here.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=94409
+
+ update-mime-database.c | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
+
+commit 989114bcb9dda8bc268977e08d8127959c1995d7
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Wed Sep 14 17:34:41 2016 +0200
+
+    build: Make "make check" fail when xdgmime is not compiled
+    
+    And we're running in git. When xdgmime is not compiled, we would
+    silently skip this test. That meant that "make check" would succeed even
+    if there were errors.
+
+ Makefile.am | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
+
+commit bba6b1abc6e78b45f9b5e36a061552d505a08d23
+Author: Richard Hughes <richard@hughsie.com>
+Date:   Wed Sep 14 15:12:18 2016 +0100
+
+    Add application/vnd.flatpak.ref
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97807
+
+ freedesktop.org.xml.in |  9 +++++++++
+ tests/gedit.flatpakref | 12 ++++++++++++
+ tests/list             |  1 +
+ 3 files changed, 22 insertions(+)
+
+commit 187df2527a8ab3fdf2f28344a106102b29b112d5
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Sep 5 16:54:20 2016 +0200
+
+    Update translations from Transifex
+
+ po/ar.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/as.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/az.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/bg.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/bn_IN.po       | 1515 ++++++++++++++++++++++++++------------------------
+ po/ca.po          | 1520 ++++++++++++++++++++++++++------------------------
+ po/ca@valencia.po | 1515 ++++++++++++++++++++++++++------------------------
+ po/cs.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/cy.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/da.po          | 1527 +++++++++++++++++++++++++++------------------------
+ po/de.po          | 1537 +++++++++++++++++++++++++++------------------------
+ po/el.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/en_GB.po       | 1521 ++++++++++++++++++++++++++------------------------
+ po/eo.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/es.po          | 1520 ++++++++++++++++++++++++++------------------------
+ po/et.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/eu.po          | 1519 ++++++++++++++++++++++++++------------------------
+ po/fa.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/fi.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/fo.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/fr.po          | 1583 +++++++++++++++++++++++++++-------------------------
+ po/ga.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/gl.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/gu.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/he.po          | 1587 ++++++++++++++++++++++++++++-------------------------
+ po/hi.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/hr.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/hu.po          | 1522 ++++++++++++++++++++++++++------------------------
+ po/ia.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/id.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/it.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/ja.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/ka.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/kk.po          | 1535 +++++++++++++++++++++++++++------------------------
+ po/kn.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/ko.po          | 1519 ++++++++++++++++++++++++++------------------------
+ po/lt.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/lv.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/ml.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/mr.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/ms.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/nb.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/nl.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/nn.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/oc.po          | 1519 ++++++++++++++++++++++++++------------------------
+ po/or.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/pa.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/pl.po          | 1533 +++++++++++++++++++++++++++------------------------
+ po/pt.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/pt_BR.po       | 1519 ++++++++++++++++++++++++++------------------------
+ po/ro.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/ru.po          | 1519 ++++++++++++++++++++++++++------------------------
+ po/ru_RU.po       | 1515 ++++++++++++++++++++++++++------------------------
+ po/sk.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/sl.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/sq.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/sr.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/sr@latin.po    | 1515 ++++++++++++++++++++++++++------------------------
+ po/sv.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/ta.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/te.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/th.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/tr.po          | 1521 ++++++++++++++++++++++++++------------------------
+ po/uk.po          | 1519 ++++++++++++++++++++++++++------------------------
+ po/vi.po          | 1517 ++++++++++++++++++++++++++------------------------
+ po/wa.po          | 1515 ++++++++++++++++++++++++++------------------------
+ po/zh_CN.po       | 1524 ++++++++++++++++++++++++++------------------------
+ po/zh_HK.po       | 1515 ++++++++++++++++++++++++++------------------------
+ po/zh_TW.po       | 1522 ++++++++++++++++++++++++++------------------------
+ 69 files changed, 55661 insertions(+), 49239 deletions(-)
+
+commit 6a03dab04007c907485201e6aab58b89863ce1f2 (tag: Release-1-7)
 Author: Bastien Nocera <hadess@hadess.net>
 Date:   Mon Sep 5 16:44:17 2016 +0200
 
@@ -8,7 +214,7 @@ Date:   Mon Sep 5 16:44:17 2016 +0200
  configure.ac |  2 +-
  2 files changed, 34 insertions(+), 1 deletion(-)
 
-commit 512d457807333b33e443c76ab66a508d2c3b5f20 (origin/master, origin/HEAD)
+commit 512d457807333b33e443c76ab66a508d2c3b5f20
 Author: Adrien Plazas <kekun.plazas@laposte.net>
 Date:   Wed Aug 3 22:24:40 2016 +0200
 
@@ -2856,9 +3062,8 @@ Date:   Fri Feb 22 18:00:22 2013 +0100
     
     https://bugs.freedesktop.org/show_bug.cgi?id=61334
 
- configure.ac | 79 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- configure.in | 79 ------------------------------------------------------------
- 2 files changed, 79 insertions(+), 79 deletions(-)
+ configure.in => configure.ac | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 467e74cd2ce85beb797265b532326c6e8c608ddf
 Author: Bastien Nocera <hadess@hadess.net>
@@ -8340,11 +8545,10 @@ Date:   Tue Nov 10 18:54:19 2009 +0000
 
     Rename application/x-it87_2 to application/x-it87 as /2 is just a revision number
 
- freedesktop.org.xml.in |  8 ++++----
- tests/list             |  2 +-
- tests/test.it87        | 17 +++++++++++++++++
- tests/test.it872       | 17 -----------------
- 4 files changed, 22 insertions(+), 22 deletions(-)
+ freedesktop.org.xml.in          | 8 ++++----
+ tests/list                      | 2 +-
+ tests/{test.it872 => test.it87} | 0
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
 commit e4bde384d99e430272909be9bc31438360a87b27
 Author: Richard Hughes <richard@hughsie.com>
@@ -8387,10 +8591,9 @@ Date:   Wed Oct 28 14:26:02 2009 +0100
 
     rename .cvsignore into .gitignore and update it; add .gitignore for the po/ subdir
 
- .cvsignore    | 23 -----------------------
- .gitignore    | 21 +++++++++++++++++++++
- po/.gitignore |  4 ++++
- 3 files changed, 25 insertions(+), 23 deletions(-)
+ .cvsignore => .gitignore | 10 ++++------
+ po/.gitignore            |  4 ++++
+ 2 files changed, 8 insertions(+), 6 deletions(-)
 
 commit e4a4bb9c6f837ca561d071a18a383d66fcb4ad28
 Author: Richard Hughes <richard@hughsie.com>

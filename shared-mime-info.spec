@@ -4,7 +4,7 @@
 #
 Name     : shared-mime-info
 Version  : 1.8
-Release  : 7
+Release  : 8
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.8.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.8.tar.xz
 Summary  : Freedesktop common MIME database

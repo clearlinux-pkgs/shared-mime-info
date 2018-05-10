@@ -4,7 +4,7 @@
 #
 Name     : shared-mime-info
 Version  : 1.9
-Release  : 10
+Release  : 11
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.9.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.9.tar.xz
 Summary  : Freedesktop common MIME database

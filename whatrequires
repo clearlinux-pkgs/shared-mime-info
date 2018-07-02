@@ -1,0 +1,6 @@
+# This file contains recursive sources that require this package
+glib
+gnome-control-center
+meld
+virt-viewer
+xlog

@@ -1,4 +1,521 @@
-commit 71a226620c948ebbc65fdab834a2f54ce6ca9e31 (HEAD -> master)
+commit 111d3397ceb17df166ec316d86a68cf56e927f00 (HEAD -> master)
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Thu Jun 28 12:02:23 2018 +0200
+
+    1.10
+
+ NEWS         | 31 +++++++++++++++++++++++++++++++
+ configure.ac |  2 +-
+ 2 files changed, 32 insertions(+), 1 deletion(-)
+
+commit a599c802c03f048eceecb453814ac5b64fbade5a (origin/master, origin/HEAD)
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Sat Jun 23 16:46:59 2018 +0200
+
+    Add another glob for Raw Floppy Disk Images
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 85bd8cf04f401a80cde9f72a0cd08e16b9282a11
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Jun 22 12:27:02 2018 +0200
+
+    Add aliases for SAP and HFE mime-types
+    
+    As used in the Teo emulator
+
+ freedesktop.org.xml.in | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 1387f4a54ff59abf4377224fe07f04be3a0fb766
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Jun 22 12:26:44 2018 +0200
+
+    Add a mime-type for raw floppy disk images
+
+ freedesktop.org.xml.in | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 5671d9e2ed53e2a8fcbebbe53f45ca6a6fc77e56
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Jun 22 12:24:25 2018 +0200
+
+    Fix indentation of Raw Disk Images mime-types
+
+ freedesktop.org.xml.in | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+commit 959291351d649b093fde9a9d327686fcd4e69e6c
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 10:16:23 2018 +0300
+
+    application/vnd.youtube.yt: New type
+    
+    https://www.iana.org/assignments/media-types/application/vnd.youtube.yt
+
+ freedesktop.org.xml.in | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit e987562f0f37fe525d5006d85d5bc3836dc226dd
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:55:05 2018 +0300
+
+    audio/usac: New type
+    
+    https://www.iana.org/assignments/media-types/audio/usac
+
+ freedesktop.org.xml.in | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 99ed700e1e2c9118e300c7e257618f4ecb8804ec
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:46:07 2018 +0300
+
+    model/stl: Use new IANA type
+    
+    https://www.iana.org/assignments/media-types/model/stl
+
+ freedesktop.org.xml.in | 15 ++++++---------
+ tests/list             |  6 ++----
+ 2 files changed, 8 insertions(+), 13 deletions(-)
+
+commit e6e3913ca76f253acb7241f9481ce0c7d4ef9857
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:33:33 2018 +0300
+
+    application/xliff+xml: Use new IANA type
+
+ freedesktop.org.xml.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 90edda28b8dca7a71232b72e680706508869f015
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:28:01 2018 +0300
+
+    audio/aac: Add *.adts and *.ass globs from IANA
+    
+    https://www.iana.org/assignments/media-types/audio/aac
+
+ freedesktop.org.xml.in | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 0395fc5281649e3f61dd9fa0e6cd0cd345d5a208
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:21:56 2018 +0300
+
+    application/pkcs8-encrypted: New type
+    
+    https://www.iana.org/assignments/media-types/application/pkcs8-encrypted
+
+ freedesktop.org.xml.in | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 855cb8daff8eac292745a3986bd152f07e88711c
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 09:17:45 2018 +0300
+
+    application/vnd.comicbook-rar: Use new IANA type
+
+ freedesktop.org.xml.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 625b06fcdd3c523bc41a32033239014522e6ba4a
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 08:47:45 2018 +0300
+
+    tests: Add sqlite2 test
+
+ tests/list         |   2 ++
+ tests/test.sqlite2 | Bin 0 -> 4096 bytes
+ 2 files changed, 2 insertions(+)
+
+commit 3c14abcb43e17cc7d06c7f46cdc9dcb0c3eb178d
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 08:47:29 2018 +0300
+
+    application/x-sqlite2: Add *.sqlite2 glob
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4dba90ae6cf7525dd88ef2cd04e8056c8f6d2605
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 08:43:17 2018 +0300
+
+    tests: Add sqlite3 test
+
+ tests/list         |   3 ++-
+ tests/test.sqlite3 | Bin 0 -> 12288 bytes
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 36a88b01f6ae90da35a2f6a072db159c84cea768
+Author: Ville Skyttä <ville.skytta@iki.fi>
+Date:   Sun Jun 17 08:41:32 2018 +0300
+
+    application/vnd.sqlite3: Use new IANA type, add *.sqlite3 glob
+
+ freedesktop.org.xml.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 8cb5786e6867dd37d915418287ed4e99926dc30e
+Author: Pino Toscano <pino@kde.org>
+Date:   Mon Jun 4 17:33:07 2018 +0200
+
+    Add text/x-perl alias to application/x-perl
+    
+    text/x-perl is the name for Perl scripts in the old MIME type system,
+    and thus produced e.g. as content-type by users of that MIME system.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=106813
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7c7f84e2a77f4142cf77ebdf239deaa14c842f9c
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Jun 4 13:25:30 2018 +0200
+
+    Remove magic from STL binary
+    
+    3-NUL bytes aren't enough to be sure that this will only ever match STL
+    binary headers.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=106330
+
+ freedesktop.org.xml.in | 7 -------
+ tests/list             | 2 +-
+ 2 files changed, 1 insertion(+), 8 deletions(-)
+
+commit 1e6b421a6c8c2dce3e430a4e2b963a9efd369aa2
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Jun 4 13:23:29 2018 +0200
+
+    Add test for bug 106330
+    
+    The first 32k of an ISO file.
+
+ tests/bug106330.iso | Bin 0 -> 32768 bytes
+ tests/list          |   1 +
+ 2 files changed, 1 insertion(+)
+
+commit d7ba16d1b8dae1d08b6dfa45b4b619cb1a372539
+Author: Joachim Bauch <bauch@struktur.de>
+Date:   Tue May 29 10:57:49 2018 +0000
+
+    Add mime-type for HEIF images
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=106691
+
+ freedesktop.org.xml.in |  10 ++++++++++
+ tests/example.heic     | Bin 0 -> 16384 bytes
+ tests/example.heif     | Bin 0 -> 16384 bytes
+ tests/list             |   2 ++
+ 4 files changed, 12 insertions(+)
+
+commit ce12f187bfb157b13b7d854b2a2d1a3e50be91e7
+Author: David Faure <faure@kde.org>
+Date:   Thu Apr 26 19:14:48 2018 +0200
+
+    Check 128 bytes rather than 32.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=97372
+
+ shared-mime-info-spec.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8e6917273078d99f592be4e539381263ce6df6ca
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Thu Apr 26 14:40:42 2018 +0200
+
+    po: Update translations
+    
+    Adding Belarusian and Friulian translations.
+
+ po/LINGUAS        |    2 +
+ po/ar.po          | 1557 ++++++++++++++-------------
+ po/as.po          | 1555 ++++++++++++++-------------
+ po/ast.po         | 1631 ++++++++++++++--------------
+ po/az.po          | 1555 ++++++++++++++-------------
+ po/be.po          | 3107 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/bg.po          | 1557 ++++++++++++++-------------
+ po/bn_IN.po       | 1555 ++++++++++++++-------------
+ po/ca.po          | 1553 +++++++++++++-------------
+ po/ca@valencia.po | 1557 ++++++++++++++-------------
+ po/cs.po          | 1597 ++++++++++++++-------------
+ po/cy.po          | 1555 ++++++++++++++-------------
+ po/da.po          | 1557 ++++++++++++++-------------
+ po/de.po          | 1557 ++++++++++++++-------------
+ po/el.po          | 1557 ++++++++++++++-------------
+ po/en_GB.po       | 1633 ++++++++++++++--------------
+ po/eo.po          | 1557 ++++++++++++++-------------
+ po/es.po          | 1555 ++++++++++++++-------------
+ po/et.po          | 1555 ++++++++++++++-------------
+ po/eu.po          | 1567 ++++++++++++++-------------
+ po/fa.po          | 1555 ++++++++++++++-------------
+ po/fi.po          | 1555 ++++++++++++++-------------
+ po/fo.po          | 1557 ++++++++++++++-------------
+ po/fr.po          | 1559 ++++++++++++++-------------
+ po/fur.po         | 3107 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ po/ga.po          | 1559 ++++++++++++++-------------
+ po/gl.po          | 1557 ++++++++++++++-------------
+ po/gu.po          | 1555 ++++++++++++++-------------
+ po/he.po          | 1557 ++++++++++++++-------------
+ po/hi.po          | 1555 ++++++++++++++-------------
+ po/hr.po          | 1557 ++++++++++++++-------------
+ po/hu.po          | 1557 ++++++++++++++-------------
+ po/ia.po          | 1557 ++++++++++++++-------------
+ po/id.po          | 1611 ++++++++++++++-------------
+ po/it.po          | 1555 ++++++++++++++-------------
+ po/ja.po          | 1557 ++++++++++++++-------------
+ po/ka.po          | 1555 ++++++++++++++-------------
+ po/kk.po          | 1553 +++++++++++++-------------
+ po/kn.po          | 1555 ++++++++++++++-------------
+ po/ko.po          | 1553 +++++++++++++-------------
+ po/lt.po          | 1557 ++++++++++++++-------------
+ po/lv.po          | 1557 ++++++++++++++-------------
+ po/ml.po          | 1555 ++++++++++++++-------------
+ po/mr.po          | 1555 ++++++++++++++-------------
+ po/ms.po          | 1557 ++++++++++++++-------------
+ po/nb.po          | 1557 ++++++++++++++-------------
+ po/nl.po          | 1557 ++++++++++++++-------------
+ po/nn.po          | 1557 ++++++++++++++-------------
+ po/oc.po          | 1559 ++++++++++++++-------------
+ po/or.po          | 1555 ++++++++++++++-------------
+ po/pa.po          | 1555 ++++++++++++++-------------
+ po/pl.po          | 1561 ++++++++++++++-------------
+ po/pt.po          | 1557 ++++++++++++++-------------
+ po/pt_BR.po       | 1568 ++++++++++++++-------------
+ po/ro.po          | 1557 ++++++++++++++-------------
+ po/ru.po          | 1561 ++++++++++++++-------------
+ po/sk.po          | 1553 +++++++++++++-------------
+ po/sl.po          | 1557 ++++++++++++++-------------
+ po/sq.po          | 1557 ++++++++++++++-------------
+ po/sr.po          | 1559 ++++++++++++++-------------
+ po/sr@latin.po    | 1557 ++++++++++++++-------------
+ po/sv.po          | 1554 ++++++++++++++-------------
+ po/ta.po          | 1555 ++++++++++++++-------------
+ po/te.po          | 1555 ++++++++++++++-------------
+ po/th.po          | 1555 ++++++++++++++-------------
+ po/tr.po          | 1559 ++++++++++++++-------------
+ po/uk.po          | 1553 +++++++++++++-------------
+ po/vi.po          | 1557 ++++++++++++++-------------
+ po/wa.po          | 1555 ++++++++++++++-------------
+ po/zh_CN.po       | 1553 +++++++++++++-------------
+ po/zh_HK.po       | 1555 ++++++++++++++-------------
+ po/zh_TW.po       | 1553 +++++++++++++-------------
+ 72 files changed, 62211 insertions(+), 51646 deletions(-)
+
+commit fbc73fb12e8c22d7718351f7e4ef6cd9603da34a
+Author: Exalm <exalm7659@gmail.com>
+Date:   Sun Apr 15 13:07:16 2018 +0000
+
+    Differentiate Neo Geo Pocket Color ROMs from non-Color ones
+    
+    Add an 'application/x-neo-geo-pocket-color-rom' MIME type, as opposed to
+    'application-x-neo-geo-pocket-rom'.
+    
+    Neo Geo Pocket Color ROMs usually have '.ngc' extension instead of
+    '.ngp', and their 0x23rd byte in the header is different from NGP ones.
+    
+    The first 9 characters in the header can either be "COPYRIGHT" or
+    " LICENSED" with a leading space.
+    
+    Also update application/x-neo-geo-pocket-rom test to use an actual NGP
+    game instead of a Neo-Geo Pocket Color one.
+    
+    http://bugzilla.freedesktop.org/show_bug.cgi?id=106055
+
+ freedesktop.org.xml.in              |  16 +++++++++++++++-
+ tests/list                          |   4 +++-
+ tests/neo-geo-pocket-color-test.ngc | Bin 0 -> 1024 bytes
+ tests/neo-geo-pocket-test.ngp       | Bin 1024 -> 1024 bytes
+ 4 files changed, 18 insertions(+), 2 deletions(-)
+
+commit 8311e418a502589b22894a375b7473249b4decf3
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Apr 24 13:19:43 2018 +0200
+
+    Remove extra linefeed in debug output
+    
+    g_message() already appends a linefeed.
+
+ update-mime-database.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+
+commit 0a698126bae762b728a10b17fc995f700138ad56
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Apr 24 13:19:03 2018 +0200
+
+    Add some debug when parsing XML package files
+    
+    So as to know in which order they are processed.
+
+ update-mime-database.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit fc149b7615deecf3c3af73bcc5ee98a4b716fbac
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Apr 23 12:12:00 2018 +0200
+
+    Look in obsolete KDE sub-dirs for clean up opportunities
+    
+    media_types[] is also used to list the possible directories to look into
+    for clean up opportunities, when recreating shared-mime-info's cache.
+    
+    This will clean up files left-over by old versions of KDE.
+    
+    https://github.com/KDE/kcoreaddons/commit/36ff1bf60c9b12c28ed4d7566abceac10cab345e
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=16816
+
+ update-mime-database.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 553aa73de2c6a5bb221bcd9153c2425cd236c703
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Mon Apr 23 12:10:29 2018 +0200
+
+    Don't warn with unknown top level type names
+    
+    Old broken mime-types still lie around, and just won't go away after
+    years. I'd rather like never to hear about things that aren't
+    shared-mime-info bugs, so drop the priority of the logs to Message.
+    
+    Use the "-V" to display those again.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=16816
+
+ update-mime-database.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 009f22a12a5f34269cd925eed4552685997ab6ca
+Author: David Faure <faure@kde.org>
+Date:   Sun Jan 28 10:36:22 2018 +0100
+
+    Remove *.bin from application/octet-stream
+    
+    It prevents better detection of the actual mimetype (octet-stream
+    meaning "unknown type of file", really) and (in Qt) leads to a preferred suffix
+    of .bin when saving a file due to this being the only glob (and
+    therefore the preferred glob).
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=101667
+
+ freedesktop.org.xml.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 363e903f7400037648eaa6f79a22e09815a79bb8
+Author: Shawn Rutledge <shawn.rutledge@qt.io>
+Date:   Fri Jan 26 08:34:08 2018 +0100
+
+    Change Qt Linguist file type to text/vnd.qt.linguist
+    
+    TrollTech doesn't exist anymore: now Qt is the name of the company,
+    the non-profit foundation, and the product. This change will makes this
+    file type more recognizable in the future when TrollTech may be
+    forgotten.
+    
+    Also update linguist.ts to look like a current (Qt 5.11) translation file.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=104799
+
+ freedesktop.org.xml.in | 3 ++-
+ tests/linguist.ts      | 8 +++++---
+ tests/list             | 4 ++--
+ 3 files changed, 9 insertions(+), 6 deletions(-)
+
+commit 7a505454a8a109b41d486cb529a4d85d927c188a
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Jan 23 18:23:47 2018 +0100
+
+    Add MPEG-4 Ringtone mime-type
+    
+    As used by iTunes and iOS.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=104706
+
+ freedesktop.org.xml.in |   5 +++++
+ tests/list             |   1 +
+ tests/ringtone.m4r     | Bin 0 -> 512 bytes
+ 3 files changed, 6 insertions(+)
+
+commit c8153d039fa9552121d22a650e8912afb8eb831f
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Sat Jan 20 14:38:15 2018 +0100
+
+    Bump priority for our DjVu mime-types
+    
+    To make sure they're preferred to the djvulibre package ones. The
+    djvulibre packages provide a version of the magic that'll always detect
+    multi-page documents as "images". We want them to be opened as
+    multi-page documents.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=787481
+    See https://sourceforge.net/p/djvu/bugs/283/
+    See https://sourceforge.net/p/djvu/bugs/85/
+    See http://pkgs.fedoraproject.org/cgit/rpms/djvulibre.git/tree/djvulibre.spec#n168
+
+ freedesktop.org.xml.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit eb4032e0cc3fa77af48ace423fdad42ce6e14d43
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Jan 9 14:47:11 2018 +0100
+
+    Add mime-type for MJPEG raw streams
+    
+    They look like JPEG files, and will display as images if opened
+    in an image viewer, but they can also be opened by movie players for
+    moving pictures.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=792325
+
+ freedesktop.org.xml.in |   8 ++++++++
+ tests/list             |   2 ++
+ tests/raw-mjpeg.mjpeg  | Bin 0 -> 262144 bytes
+ 3 files changed, 10 insertions(+)
+
+commit fb8f959edab22797c61a959b28084683cc2bf826
+Author: Shawn Rutledge <shawn.rutledge@qt.io>
+Date:   Fri Jan 5 11:32:32 2018 +0100
+
+    fix the QML magic
+    
+    We can only say that some module starting with Qt or Qml will be imported
+    (as long as it's not QML for BB Cascades or some web framework or...)
+    and something will be declared with braces after.  The declaration must
+    start with a capital letter but we have no way to express that.
+    Alternatively, any script starting with shebang qml must be qml.
+    
+    Added more tests.  The PySide minimal example is public domain, from
+    https://bitbucket.org/techtonik/pyside-copy-paste/src/5f8c1f8cf12d8fb18a1d35d98acc8200c904c56d/01.minimal.py?at=default&fileviewer=file-view-default
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=104480
+
+ freedesktop.org.xml.in |  8 +++++++-
+ tests/list             |  5 +++++
+ tests/plugins.qmltypes | 23 +++++++++++++++++++++++
+ tests/pyside.py        |  5 +++++
+ tests/rectangle.qml    |  7 ++-----
+ tests/shebang.qml      |  3 +++
+ tests/text.qmlproject  | 17 +++++++++++++++++
+ 7 files changed, 62 insertions(+), 6 deletions(-)
+
+commit 1cca52e574a3583f96a809455f17148d863b7788
+Author: Yanko Kaneti <yaneti@declera.com>
+Date:   Tue Nov 28 11:11:42 2017 +0200
+
+    Add an application/xps alias for application/oxps
+    
+    Apple Mail attaches .xps files as application/xps
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=103969
+
+ freedesktop.org.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 71a226620c948ebbc65fdab834a2f54ce6ca9e31 (tag: Release-1-9)
 Author: Bastien Nocera <hadess@hadess.net>
 Date:   Mon Sep 18 13:16:07 2017 +0200
 
@@ -105,7 +622,7 @@ Date:   Mon Sep 18 13:07:05 2017 +0200
  po/ast.po  | 3045 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  2 files changed, 3046 insertions(+)
 
-commit e9445111472fa7678929e8126146bf9c45af6440 (origin/master, origin/HEAD)
+commit e9445111472fa7678929e8126146bf9c45af6440
 Author: Bastien Nocera <hadess@hadess.net>
 Date:   Mon Sep 18 13:02:38 2017 +0200
 

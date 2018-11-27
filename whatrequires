@@ -1,6 +1,15 @@
 # This file contains recursive sources that require this package
+akonadi
+akonadi-mime
+ark
+bluedevil
 glib
 gnome-control-center
-meld
+kbackup
+kcoreaddons
+kio-extras
+kmail-account-wizard
+kpkpass
+palapeli
 virt-viewer
 xlog

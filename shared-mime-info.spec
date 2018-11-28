@@ -4,7 +4,7 @@
 #
 Name     : shared-mime-info
 Version  : 1.10
-Release  : 14
+Release  : 15
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source1  : shared-mime-info.tmpfiles

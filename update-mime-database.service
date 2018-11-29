@@ -1,8 +1,11 @@
 [Unit]
 Description=Update mimetype cache
 BindsTo=update-triggers.target
+Wants=tmpfiles-trigger.service
+After=tmpfiles-trigger.service
+AssertPathIsSymbolicLink=/usr/share/mime
+AssertPathIsSymbolicLink=/usr/share/mime/packages
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/update-mime-database /usr/share/mime
-

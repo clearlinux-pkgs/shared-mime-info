@@ -5,11 +5,12 @@ ark
 bluedevil
 glib
 gnome-control-center
+gtk+
 kbackup
 kcoreaddons
+kdenlive
 kio-extras
 kmail-account-wizard
 kpkpass
 palapeli
-virt-viewer
 xlog

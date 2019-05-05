@@ -4,12 +4,12 @@
 #
 Name     : shared-mime-info
 Version  : 1.10
-Release  : 16
+Release  : 17
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source1  : shared-mime-info.tmpfiles
 Source2  : update-mime-database.service
-Summary  : Freedesktop common MIME database
+Summary  : Freedesktop.org Shared MIME Info
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: shared-mime-info-bin = %{version}-%{release}
@@ -38,7 +38,6 @@ Group: Binaries
 Requires: shared-mime-info-data = %{version}-%{release}
 Requires: shared-mime-info-config = %{version}-%{release}
 Requires: shared-mime-info-license = %{version}-%{release}
-Requires: shared-mime-info-man = %{version}-%{release}
 Requires: shared-mime-info-services = %{version}-%{release}
 
 %description bin
@@ -67,6 +66,7 @@ Group: Development
 Requires: shared-mime-info-bin = %{version}-%{release}
 Requires: shared-mime-info-data = %{version}-%{release}
 Provides: shared-mime-info-devel = %{version}-%{release}
+Requires: shared-mime-info = %{version}-%{release}
 
 %description dev
 dev components for the shared-mime-info package.
@@ -112,7 +112,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543341671
+export SOURCE_DATE_EPOCH=1557099425
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static --disable-update-mimedb
 make
 
@@ -124,7 +131,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 check
 
 %install
-export SOURCE_DATE_EPOCH=1543341671
+export SOURCE_DATE_EPOCH=1557099425
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/shared-mime-info
 cp COPYING %{buildroot}/usr/share/package-licenses/shared-mime-info/COPYING

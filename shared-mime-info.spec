@@ -4,12 +4,12 @@
 #
 Name     : shared-mime-info
 Version  : 1.10
-Release  : 19
+Release  : 20
 URL      : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source0  : http://freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 Source1  : shared-mime-info.tmpfiles
 Source2  : update-mime-database.service
-Summary  : Freedesktop.org Shared MIME Info
+Summary  : Freedesktop common MIME database
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: shared-mime-info-bin = %{version}-%{release}
@@ -106,35 +106,37 @@ services components for the shared-mime-info package.
 
 %prep
 %setup -q -n shared-mime-info-1.10
+cd %{_builddir}/shared-mime-info-1.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557099425
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604603277
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static --disable-update-mimedb
 make
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 check
+make check
 
 %install
-export SOURCE_DATE_EPOCH=1557099425
+export SOURCE_DATE_EPOCH=1604603277
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/shared-mime-info
-cp COPYING %{buildroot}/usr/share/package-licenses/shared-mime-info/COPYING
+cp %{_builddir}/shared-mime-info-1.10/COPYING %{buildroot}/usr/share/package-licenses/shared-mime-info/4cc77b90af91e615a64ae04893fdffa7939db84c
 %make_install
 %find_lang shared-mime-info
 mkdir -p %{buildroot}/usr/lib/systemd/system
@@ -144,6 +146,7 @@ install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/tmpfiles.d/shared-mime-info.conf
 ## install_append content
 mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/
 ln -s ../update-mime-database.service %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/update-mime-database.service
+
 mv %{buildroot}/usr/share/mime/packages %{buildroot}/usr/share/mime-packages
 rm -rf %{buildroot}/usr/share/mime
 ln -sf ../../var/cache/mime %{buildroot}/usr/share/mime
@@ -171,7 +174,7 @@ ln -sf ../../var/cache/mime %{buildroot}/usr/share/mime
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/shared-mime-info/COPYING
+/usr/share/package-licenses/shared-mime-info/4cc77b90af91e615a64ae04893fdffa7939db84c
 
 %files man
 %defattr(0644,root,root,0755)

@@ -1,16 +1,17 @@
 # This file contains recursive sources that require this package
 akonadi
 akonadi-mime
-ark
 bluedevil
+gdk-pixbuf
 glib
 gnome-control-center
 gtk+
 kbackup
 kcoreaddons
 kdenlive
-kio-extras
+kdepim-runtime
+kitinerary
 kmail-account-wizard
 kpkpass
 palapeli
-xlog
+qtbase

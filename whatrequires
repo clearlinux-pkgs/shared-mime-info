@@ -2,7 +2,6 @@
 akonadi
 akonadi-mime
 bluedevil
-gdk-pixbuf
 glib
 gnome-control-center
 gtk+
@@ -10,8 +9,9 @@ kbackup
 kcoreaddons
 kdenlive
 kdepim-runtime
+kio-extras
 kitinerary
+kleopatra
 kmail-account-wizard
 kpkpass
 palapeli
-qtbase
